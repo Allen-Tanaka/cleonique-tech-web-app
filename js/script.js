@@ -56,3 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+/* auto‑collapse mobile menu when a nav‑link is tapped */
+document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const navCollapse = bootstrap.Collapse.getInstance(
+      document.getElementById('navbarNav')
+    );
+    if (navCollapse) navCollapse.hide();
+  });
+});
