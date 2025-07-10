@@ -122,7 +122,8 @@ body{
 .section3{background:url('../images/placeholder3.png') center/cover no-repeat}
 .carousel-caption{
   position:absolute;
-  top:50%;left:50%;
+  top:220px;left:350px;
+  right:350px;bottom:280px;
   transform:translate(-50%,-50%);
   width:85%;
   max-width:900px;
@@ -157,6 +158,23 @@ body{
   .carousel-caption{padding:1.4rem}
   .hero-title{font-size:1.8rem}
   .carousel-caption p{font-size:.9rem;margin-bottom:.4rem}
+
+  .section1{background:url('../images/placeholder1.png') center/cover no-repeat}
+.section2{background:url('../images/placeholder2.png') center/cover no-repeat}
+.section3{background:url('../images/placeholder3.png') center/cover no-repeat}
+.carousel-caption{
+  position:absolute;
+  top:30px;left:50px;
+  right:50px;bottom:80px;
+  transform:translate(-50%,-50%);
+  width:85%;
+  max-width:900px;
+  background:rgba(0,0,0,.55);
+  border-radius:var(--radius);
+  padding:2rem;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+}
 }
 
 /* === Section headings === */
@@ -273,3 +291,40 @@ footer .social-icons a{
   transition:color .3s;
 }
 footer .social-icons a:hover{color:var(--brand-primary)}
+
+/* ======================================================================
+   2025-07-10 PATCHES – keep at end so they override earlier rules
+   ====================================================================== */
+
+/* 1 ▸ Centre hero caption precisely (no 85 % drift) */
+#hero-carousel .carousel-caption{
+  width:auto;
+  max-width:900px;
+  background:rgba(0,0,0,.55);
+  padding:2rem 2.5rem;
+  text-align:center;
+}
+
+/* 2 ▸ Chat-toggle button mirrors scroll-up button */
+.scroll-btn,
+.chat-toggle button{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.25rem;
+  padding:0;
+}
+.chat-toggle button{
+  background:var(--brand-primary);
+  color:#fff;
+  border:none;
+}
+
+/* keep chat-toggle container stacked above scroll button */
+.chat-toggle{bottom:90px;right:30px;position:fixed;z-index:1050}
+
+/* 3 ▸ Trim excess space under Reviews */
+#reviews{padding-bottom:2rem!important;margin-bottom:0!important}

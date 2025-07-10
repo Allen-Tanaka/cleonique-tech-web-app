@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cleonique Tech Limited</title>
 
-  <!-- pre‑connects for performance -->
+  <!-- pre-connects for performance -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://unpkg.com">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS libraries -->
@@ -24,32 +24,32 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
 
-  <!-- ───── Scroll‑to‑top & Chat buttons ───── -->
+  <!-- ╭───────────── Floating buttons ─────────────╮ -->
   <button id="toTopBtn" class="btn btn-cta scroll-btn" style="display:none">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <div id="chat-toggle" class="chat-toggle">
-    <button class="btn btn-primary"><i class="fas fa-comments"></i></button>
+    <!-- changed from .btn-primary → .btn-cta so it matches scroll button -->
+    <button class="btn btn-cta"><i class="fas fa-comments"></i></button>
   </div>
 
   <div id="chat-box" class="chat-box d-none">
     <div class="chat-header">
-      <span>Chat with us</span>
+      <span>Chat with us</span>
       <button id="chat-close" class="btn-close"></button>
     </div>
     <div class="chat-body">
-      <p>Hi! How can we help?</p>
+      <p>Hi! How can we help?</p>
       <input type="text" disabled>
     </div>
   </div>
+  <!-- ╰────────────────────────────────────────────╯ -->
 
   <!-- ───── NAVBAR ───── -->
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-gradient-custom fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#hero-carousel">
-        <span class="logo-initial">C</span>leonique
-      </a>
+      <a class="navbar-brand fw-bold" href="#hero-carousel"><span class="logo-initial">C</span>leonique</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarNav" aria-controls="navbarNav"
@@ -67,8 +67,8 @@
             <ul class="dropdown-menu dropdown-menu-dark rounded-3 shadow-lg">
               <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#resServiceModal">Residential</a></li>
               <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#comServiceModal">Commercial</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#oneoffServiceModal">One‑Offs</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ecoServiceModal">Eco & Value</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#oneoffServiceModal">One-Offs</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ecoServiceModal">Eco &amp; Value</a></li>
             </ul>
           </li>
 
@@ -98,27 +98,27 @@
       <div class="carousel-item active section-bg section1">
         <img class="hero-bg" src="images/placeholder1.png" alt="" decoding="async">
         <div class="carousel-caption animate__animated animate__fadeInDown">
-          <h1 class="hero-title">Eco‑Centric Cleaning</h1>
-          <p class="lead">Plant‑based products • Carbon‑neutral process</p>
-          <a href="#about" class="btn btn-cta mt-2">Discover How</a>
+          <h1 class="hero-title">Eco-Centric Cleaning</h1>
+          <p class="lead">Plant-based products • Carbon-neutral process</p>
+          <a href="#about" class="btn btn-cta mt-2">Discover How</a>
         </div>
       </div>
 
       <div class="carousel-item section-bg section2">
         <img class="hero-bg" src="images/placeholder2.png" alt="" decoding="async">
         <div class="carousel-caption animate__animated animate__fadeInDown">
-          <h1 class="hero-title">Seamless Booking</h1>
-          <p class="lead">Schedule in seconds.  Let us handle the rest.</p>
-          <a href="#contact" class="btn btn-cta mt-2">Book Now</a>
+          <h1 class="hero-title">Seamless Booking</h1>
+          <p class="lead">Schedule in seconds. Let us handle the rest.</p>
+          <a href="#contact" class="btn btn-cta mt-2">Book Now</a>
         </div>
       </div>
 
       <div class="carousel-item section-bg section3">
         <img class="hero-bg" src="images/placeholder3.png" alt="" decoding="async">
         <div class="carousel-caption animate__animated animate__fadeInDown">
-          <h1 class="hero-title">Transparent Pricing</h1>
+          <h1 class="hero-title">Transparent Pricing</h1>
           <p class="lead">Clear quotes • No hidden costs • Peace of mind</p>
-          <a href="#contact" class="btn btn-cta mt-2">Request Quote</a>
+          <a href="#contact" class="btn btn-cta mt-2">Request Quote</a>
         </div>
       </div>
     </div>
@@ -134,9 +134,9 @@
   <!-- ───── ABOUT ───── -->
   <section id="about" class="py-5 bg-light">
     <div class="container text-center">
-      <h2 class="section-heading">About Us</h2>
+      <h2 class="section-heading">About Us</h2>
       <p class="mx-auto text-muted" style="max-width:700px">
-        Cleonique Tech Limited delivers premium, eco‑friendly cleaning solutions with integrity and care—serving homes and businesses across Cheltenham.
+        Cleonique Tech Limited delivers premium, eco-friendly cleaning solutions with integrity and care—serving homes and businesses across Cheltenham.
       </p>
     </div>
   </section>
@@ -144,42 +144,42 @@
   <!-- ───── SERVICES ───── -->
   <section id="services" class="py-5">
     <div class="container">
-      <h2 class="section-heading">Our Services</h2>
+      <h2 class="section-heading">Our Services</h2>
       <div class="row g-4 justify-content-center">
 
         <div class="col-sm-6 col-lg-3">
           <div class="service-card">
             <img src="images/placeholder1.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Residential Cleaning</h5>
-            <p>Deep cleans, move‑in/out &amp; sanitisation.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#resServiceModal">Learn More</button>
+            <h5>Residential Cleaning</h5>
+            <p>Deep cleans, move-in/out &amp; sanitisation.</p>
+            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#resServiceModal">Learn More</button>
           </div>
         </div>
 
         <div class="col-sm-6 col-lg-3">
           <div class="service-card">
             <img src="images/placeholder2.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Commercial Cleaning</h5>
+            <h5>Commercial Cleaning</h5>
             <p>Office, retail, hospitality &amp; healthcare.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#comServiceModal">Learn More</button>
+            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#comServiceModal">Learn More</button>
           </div>
         </div>
 
         <div class="col-sm-6 col-lg-3">
           <div class="service-card">
             <img src="images/placeholder3.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Specialist One‑Off</h5>
-            <p>Event, renovation, allergy &amp; jet‑wash.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#oneoffServiceModal">Learn More</button>
+            <h5>Specialist One-Off</h5>
+            <p>Event, renovation, allergy &amp; jet-wash.</p>
+            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#oneoffServiceModal">Learn More</button>
           </div>
         </div>
 
         <div class="col-sm-6 col-lg-3">
           <div class="service-card">
             <img src="images/placeholder4.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Eco &amp; Value‑Add</h5>
+            <h5>Eco &amp; Value-Add</h5>
             <p>Green upgrades, linen &amp; recycling supply.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#ecoServiceModal">Learn More</button>
+            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#ecoServiceModal">Learn More</button>
           </div>
         </div>
 
@@ -187,101 +187,121 @@
     </div>
   </section>
 
-  <!-- ───── SERVICE MODALS ───── -->
-  <!-- Residential -->
-  <div class="modal fade" id="resServiceModal" tabindex="-1" aria-labelledby="resServiceLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="resServiceLabel">Residential Cleaning Packages</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">• Regular maintenance</li>
-            <li class="list-group-item">• Deep / Spring cleans</li>
-            <li class="list-group-item">• End‑of‑tenancy &amp; move‑in/out</li>
-            <li class="list-group-item">• Kitchen &amp; bathroom sanitisation</li>
-            <li class="list-group-item">• Carpet &amp; upholstery steam cleaning</li>
-            <li class="list-group-item">• Interior windows &amp; glass</li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <a href="#contact" class="btn btn-cta">Request Quote</a>
-        </div>
+<!-- ───── SERVICE MODALS (Residential / Commercial / One-Off / Eco & Value) ───── -->
+
+<!-- ▸ Residential Cleaning Modal -->
+<div class="modal fade" id="resServiceModal" tabindex="-1" aria-labelledby="resServiceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold" id="resServiceLabel">Residential Cleaning</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <img class="img-fluid rounded-3 mb-4" src="images/placeholder1.png" alt="Residential cleaning service">
+        <p class="lead">From weekly maintenance to one-off sparkle cleans, our fully-insured technicians treat your home as if it were their own.</p>
+
+        <ul class="list-unstyled ms-1">
+          <li><i class="fas fa-check text-brand me-2"></i> Kitchen &amp; bathroom deep-sanitisation</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Oven, hob &amp; fridge detailing</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Carpet &amp; upholstery steam-clean</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Eco-friendly consumables as standard</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer border-0">
+        <a href="#contact" class="btn btn-cta">Request a Home Quote</a>
       </div>
     </div>
   </div>
-  <!-- Commercial -->
-  <div class="modal fade" id="comServiceModal" tabindex="-1" aria-labelledby="comServiceLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="comServiceLabel">Commercial Cleaning</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">• Corporate &amp; co‑working spaces</li>
-            <li class="list-group-item">• Retail &amp; showrooms</li>
-            <li class="list-group-item">• Hospitality turnover (Airbnbs, cafés)</li>
-            <li class="list-group-item">• Schools &amp; nurseries</li>
-            <li class="list-group-item">• Healthcare &amp; dental clinics</li>
-            <li class="list-group-item">• Scheduled contracts</li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <a href="#contact" class="btn btn-cta">Book Visit</a>
-        </div>
+</div>
+
+<!-- ▸ Commercial Cleaning Modal -->
+<div class="modal fade" id="comServiceModal" tabindex="-1" aria-labelledby="comServiceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold" id="comServiceLabel">Commercial Cleaning</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <img class="img-fluid rounded-3 mb-4" src="images/placeholder2.png" alt="Commercial cleaning service">
+        <p class="lead">Tailored contracts for offices, retail, hospitality and healthcare—with flexible out-of-hours scheduling.</p>
+
+        <ul class="list-unstyled ms-1">
+          <li><i class="fas fa-check text-brand me-2"></i> BICS-trained staff &amp; COSHH compliance</li>
+          <li><i class="fas fa-check text-brand me-2"></i> High-touch disinfection &amp; fogging</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Waste segregation &amp; recycling management</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Real-time digital attendance logs</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer border-0">
+        <a href="#contact" class="btn btn-cta">Enquire About a Contract</a>
       </div>
     </div>
   </div>
-  <!-- One-off -->
-  <div class="modal fade" id="oneoffServiceModal" tabindex="-1" aria-labelledby="oneoffServiceLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="oneoffServiceLabel">Specialist One‑Off Cleans</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">• After‑builders cleanup</li>
-            <li class="list-group-item">• Pre/post‑event turnaround</li>
-            <li class="list-group-item">• Allergy‑relief fogging</li>
-            <li class="list-group-item">• Patio &amp; driveway jet‑wash</li>
-            <li class="list-group-item">• Floor restoration</li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <a href="#contact" class="btn btn-cta">Schedule</a>
-        </div>
+</div>
+
+<!-- ▸ Specialist One-Off Modal -->
+<div class="modal fade" id="oneoffServiceModal" tabindex="-1" aria-labelledby="oneoffServiceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold" id="oneoffServiceLabel">Specialist One-Off Cleaning</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <img class="img-fluid rounded-3 mb-4" src="images/placeholder3.png" alt="One-off cleaning service">
+        <p class="lead">Perfect for end-of-tenancy, renovation dust-outs, pre-event spruce-ups or allergen control cleans.</p>
+
+        <ul class="list-unstyled ms-1">
+          <li><i class="fas fa-check text-brand me-2"></i> Booking slots within 48 hours</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Industrial air scrubbers for dust-heavy jobs</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Specialist stain &amp; odour treatments</li>
+          <li><i class="fas fa-check text-brand me-2"></i> Post-clean photographic checklist</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer border-0">
+        <a href="#contact" class="btn btn-cta">Book a One-Off Clean</a>
       </div>
     </div>
   </div>
-  <!-- Eco/value -->
-  <div class="modal fade" id="ecoServiceModal" tabindex="-1" aria-labelledby="ecoServiceLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="ecoServiceLabel">Eco‑Friendly &amp; Value‑Add</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">• Green Clean upgrade</li>
-            <li class="list-group-item">• Reusable micro‑fibre system</li>
-            <li class="list-group-item">• Laundry &amp; linen‑change add‑ons</li>
-            <li class="list-group-item">• Eco consumables subscription</li>
-            <li class="list-group-item">• Recycling services</li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <a href="#contact" class="btn btn-cta">Add</a>
-        </div>
+</div>
+
+<!-- ▸ Eco & Value-Add Modal -->
+<div class="modal fade" id="ecoServiceModal" tabindex="-1" aria-labelledby="ecoServiceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold" id="ecoServiceLabel">Eco &amp; Value-Add Options</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <img class="img-fluid rounded-3 mb-4" src="images/placeholder4.png" alt="Eco-friendly cleaning service">
+        <p class="lead">Upgrade any service with our planet-friendly add-ons and cost-saving bundles.</p>
+
+        <ul class="list-unstyled ms-1">
+          <li><i class="fas fa-leaf text-success me-2"></i> 100 % plant-based detergents</li>
+          <li><i class="fas fa-leaf text-success me-2"></i> Refillable glass &amp; surface spray system</li>
+          <li><i class="fas fa-leaf text-success me-2"></i> Carbon-offset travel &amp; equipment</li>
+          <li><i class="fas fa-leaf text-success me-2"></i> Linen rental &amp; towel-fold service</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer border-0">
+        <a href="#contact" class="btn btn-cta">Add to My Clean</a>
       </div>
     </div>
   </div>
+</div>
+<!-- ─── End of Service Modals ─── -->
+
 
   <!-- ───── GALLERY ───── -->
   <section id="gallery" class="py-5 bg-light">
@@ -301,18 +321,18 @@
     <div class="container">
       <div class="row g-5">
         <div class="col-lg-6">
-          <h2 class="section-heading mb-2">Contact Us</h2>
+          <h2 class="section-heading mb-2">Contact Us</h2>
           <p class="text-muted mb-4" style="max-width:500px">
             Get in touch and let us know how we can freshen up your space.
           </p>
           <form>
-            <label class="form-label fw-semibold mb-1">Full Name *</label>
+            <label class="form-label fw-semibold mb-1">Full Name *</label>
             <input class="styled-input" type="text" required>
 
-            <label class="form-label fw-semibold mb-1">Email *</label>
+            <label class="form-label fw-semibold mb-1">Email *</label>
             <input class="styled-input" type="email" required>
 
-            <label class="form-label fw-semibold mb-1">Message *</label>
+            <label class="form-label fw-semibold mb-1">Message *</label>
             <textarea class="styled-input" rows="5" required></textarea>
 
             <div class="form-check my-3">
@@ -330,8 +350,8 @@
           </div>
           <div class="bg-brand-dark text-white p-4 mt-3 rounded-3 d-flex flex-column flex-md-row gap-4">
             <div><i class="fas fa-envelope me-2"></i>info@cleoniquetech.co.uk</div>
-            <div><i class="fas fa-phone me-2"></i>+44 (0)1242 000 000</div>
-            <div><i class="fas fa-map-marker-alt me-2"></i>Cheltenham, UK</div>
+            <div><i class="fas fa-phone me-2"></i>+44 (0)1242 000 000</div>
+            <div><i class="fas fa-map-marker-alt me-2"></i>Cheltenham, UK</div>
           </div>
         </div>
       </div>
@@ -341,7 +361,7 @@
   <!-- ───── REVIEWS ───── -->
   <section id="reviews" class="py-5 bg-light">
     <div class="container">
-      <h2 class="section-heading">Client Reviews</h2>
+      <h2 class="section-heading">Client Reviews</h2>
 
       <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
@@ -349,42 +369,42 @@
           <div class="carousel-item active">
             <div class="review-card p-4 shadow-sm mx-auto">
               <p class="fst-italic">“Immaculate work! Booking was easy and the team left our office sparkling.”</p>
-              <div class="mt-3 fw-semibold">— Emma R.</div>
+              <div class="mt-3 fw-semibold">— Emma R.</div>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="review-card p-4 shadow-sm mx-auto">
               <p class="fst-italic">“The eco option is perfect for my kids and pets. Highly recommend Cleonique.”</p>
-              <div class="mt-3 fw-semibold">— Liam S.</div>
+              <div class="mt-3 fw-semibold">— Liam S.</div>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="review-card p-4 shadow-sm mx-auto">
               <p class="fst-italic">“Professional, on time, and the deep clean was worth every penny.”</p>
-              <div class="mt-3 fw-semibold">— Jasmine K.</div>
+              <div class="mt-3 fw-semibold">— Jasmine K.</div>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“Their carbon‑neutral promise aligns perfectly with our company values.”</p>
-              <div class="mt-3 fw-semibold">— Marcus A.</div>
+              <p class="fst-italic">“Their carbon-neutral promise aligns perfectly with our company values.”</p>
+              <div class="mt-3 fw-semibold">— Marcus A.</div>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="review-card p-4 shadow-sm mx-auto">
               <p class="fst-italic">“Our Airbnb rating shot up after Cleonique’s turnover service. Guests rave about cleanliness!”</p>
-              <div class="mt-3 fw-semibold">— Sophie T.</div>
+              <div class="mt-3 fw-semibold">— Sophie T.</div>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="review-card p-4 shadow-sm mx-auto">
               <p class="fst-italic">“Quick response, friendly staff, and superb results every single visit.”</p>
-              <div class="mt-3 fw-semibold">— Daniel M.</div>
+              <div class="mt-3 fw-semibold">— Daniel M.</div>
             </div>
           </div>
 
@@ -400,11 +420,11 @@
     </div>
   </section>
 
-  <!-- ───── PRE‑FOOTER ───── -->
+  <!-- ───── PRE-FOOTER ───── -->
   <section class="pre-footer bg-brand-primary text-white py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
       <h4 class="mb-3 mb-md-0">Ready for a spotless space?</h4>
-      <a href="#contact" class="btn btn-light btn-lg">Request a Quote</a>
+      <a href="#contact" class="btn btn-light btn-lg">Request a Quote</a>
     </div>
   </section>
 
@@ -414,19 +434,19 @@
       <div class="row gy-4">
 
         <div class="col-md-4">
-          <h5 class="fw-bold mb-3">Cleonique Tech Limited</h5>
+          <h5 class="fw-bold mb-3">Cleonique Tech Limited</h5>
           <p class="small">
-            <strong>Mission:</strong> Deliver meticulous, eco‑friendly cleaning.<br>
+            <strong>Mission:</strong> Deliver meticulous, eco-friendly cleaning.<br>
             <strong>Vision:</strong> Be Cheltenham’s most trusted hygiene partner.<br>
-            <strong>Service Areas:</strong> Cheltenham • Gloucester • Tewkesbury • Cotswolds.
+            <strong>Service Areas:</strong> Cheltenham • Gloucester • Tewkesbury • Cotswolds.
           </p>
         </div>
 
         <div class="col-md-4">
-          <h5 class="fw-bold mb-3">Quick Links</h5>
+          <h5 class="fw-bold mb-3">Quick Links</h5>
           <ul class="list-unstyled footer-links">
             <li><a href="#hero-carousel">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#reviews">Reviews</a></li>
@@ -437,8 +457,8 @@
         <div class="col-md-4">
           <h5 class="fw-bold mb-3">Contact</h5>
           <p class="small mb-1"><i class="fas fa-envelope me-2"></i>info@cleoniquetech.co.uk</p>
-          <p class="small mb-1"><i class="fas fa-phone me-2"></i>+44 (0)1242 000 000</p>
-          <p class="small"><i class="fas fa-map-marker-alt me-2"></i>2 Aysgarth Ave, Cheltenham</p>
+          <p class="small mb-1"><i class="fas fa-phone me-2"></i>+44 (0)1242 000 000</p>
+          <p class="small"><i class="fas fa-map-marker-alt me-2"></i>2 Aysgarth Ave, Cheltenham</p>
           <div class="social-icons mt-3 gap-3">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -451,7 +471,7 @@
       <hr class="border-light my-4">
 
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
-        <div>&copy; 2025 Cleonique Tech Limited. All rights reserved.</div>
+        <div>&copy; 2025 Cleonique Tech Limited. All rights reserved.</div>
         <div>Site powered by <strong>iCODE</strong>.</div>
       </div>
     </div>
