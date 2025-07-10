@@ -1,68 +1,36 @@
-/*  Bootstrap & AOS helpers for Cleonique Tech site  */
+/* Cleonique main script */
+document.addEventListener('DOMContentLoaded',()=>{
 
-document.addEventListener('DOMContentLoaded', () => {
+  /* Navbar shadow + scroll‑to‑top */
+  const nav=document.getElementById('navbar');
+  const topBtn=document.getElementById('toTopBtn');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('shadow',scrollY>10);
+    topBtn.style.display=scrollY>300?'block':'none';
+  });
+  topBtn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-  /* ───── Navbar shadow + Scroll‑to‑Top ───── */
-  const nav   = document.getElementById('navbar');
-  const topBtn = document.getElementById('toTopBtn');
+  /* Chat widget */
+  document.getElementById('chat-toggle')
+          .addEventListener('click',()=>document.getElementById('chat-box').classList.toggle('d-none'));
+  document.getElementById('chat-close')
+          .addEventListener('click',()=>document.getElementById('chat-box').classList.add('d-none'));
 
-  const onScroll = () => {
-    const scY = window.scrollY;
-    nav.classList.toggle('shadow', scY > 10);
-    if (topBtn) topBtn.style.display = scY > 300 ? 'block' : 'none';
-  };
-  window.addEventListener('scroll', onScroll);
+  /* Carousel */
+  new bootstrap.Carousel('#hero-carousel',{interval:5000,pause:'hover',ride:'carousel',touch:true});
 
-  if (topBtn) {
-    topBtn.addEventListener('click', () =>
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    );
-  }
-
-  /* ───── Chat Widget ───── */
-  const chatToggle = document.getElementById('chat-toggle');
-  const chatBox    = document.getElementById('chat-box');
-  const chatClose  = document.getElementById('chat-close');
-
-  if (chatToggle && chatBox) {
-    chatToggle.addEventListener('click', () => chatBox.classList.toggle('d-none'));
-    if (chatClose) chatClose.addEventListener('click', () => chatBox.classList.add('d-none'));
-  }
-
-  /* ───── Bootstrap Carousel (auto‑play) ───── */
-  if (document.querySelector('#hero-carousel')) {
-    new bootstrap.Carousel('#hero-carousel', {
-      interval: 5000,
-      pause: 'hover',
-      ride: 'carousel',
-      touch: true
-    });
-  }
-
-  /* ───── Dropdowns open on hover (desktop) ───── */
-  document.querySelectorAll('.nav-item.dropdown').forEach(item => {
-    const ddTrigger = item.querySelector('.dropdown-toggle');
-    if (!ddTrigger) return;
-    const dd = new bootstrap.Dropdown(ddTrigger, { autoClose: 'outside' });
-    item.addEventListener('mouseenter', () => window.innerWidth >= 992 && dd.show());
-    item.addEventListener('mouseleave', () => window.innerWidth >= 992 && dd.hide());
+  /* Dropdown hover */
+  document.querySelectorAll('.nav-item.dropdown').forEach(el=>{
+    const dd=new bootstrap.Dropdown(el.querySelector('.dropdown-toggle'),{autoClose:'outside'});
+    el.addEventListener('mouseenter',()=>innerWidth>=992&&dd.show());
+    el.addEventListener('mouseleave',()=>innerWidth>=992&&dd.hide());
   });
 
-  /* ───── AOS (Animate‑On‑Scroll) ───── */
-  if (typeof AOS !== 'undefined') AOS.init({
-    once: true,
-    duration: 800,
-    easing: 'ease-out-cubic'
-  });
-
-});
-
-/* auto‑collapse mobile menu when a nav‑link is tapped */
-document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    const navCollapse = bootstrap.Collapse.getInstance(
-      document.getElementById('navbarNav')
-    );
-    if (navCollapse) navCollapse.hide();
+  /* Mobile menu lock & auto‑collapse */
+  const navCollapse=document.getElementById('navbarNav');
+  navCollapse.addEventListener('shown.bs.collapse',()=>document.body.style.overflow='hidden');
+  navCollapse.addEventListener('hidden.bs.collapse',()=>document.body.style.overflow='');
+  document.querySelectorAll('#navbarNav .nav-link').forEach(l=>{
+    l.addEventListener('click',()=>bootstrap.Collapse.getInstance(navCollapse)?.hide());
   });
 });
