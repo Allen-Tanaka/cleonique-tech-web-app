@@ -154,6 +154,10 @@ body{
   background:var(--brand-primary);
   transform:scale(1.2);
 }
+
+/* ======================================================================
+   Mobile styles
+   ====================================================================== */
 @media(max-width:576px){
   .carousel-caption{padding:1.4rem}
   .hero-title{font-size:1.8rem}
@@ -164,8 +168,8 @@ body{
 .section3{background:url('../images/placeholder3.png') center/cover no-repeat}
 .carousel-caption{
   position:absolute;
-  top:30px;left:50px;
-  right:50px;bottom:80px;
+  top:160px;left:50px;
+  right:50px;bottom:180px;
   transform:translate(-50%,-50%);
   width:85%;
   max-width:900px;
