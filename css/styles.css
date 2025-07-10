@@ -122,8 +122,8 @@ body{
 .section3{background:url('../images/placeholder3.png') center/cover no-repeat}
 .carousel-caption{
   position:absolute;
-  top:220px;left:350px;
-  right:350px;bottom:280px;
+  top:220px;left:300px;
+  right:300px;bottom:260px;
   transform:translate(-50%,-50%);
   width:85%;
   max-width:900px;
