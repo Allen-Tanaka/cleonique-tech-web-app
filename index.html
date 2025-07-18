@@ -62,13 +62,14 @@
           <li class="nav-item"><a class="nav-link active-link" href="#hero-carousel">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
 
+          <!--Services Dropdown-->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Services</a>
+            <a class="nav-link dropdown-toggle" href="#services" data-bs-toggle="dropdown" data-bs-auto-close="outside">Services</a>
             <ul class="dropdown-menu dropdown-menu-dark rounded-3 shadow-lg">
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#resServiceModal">Residential</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#comServiceModal">Commercial</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#oneoffServiceModal">One-Offs</a></li>
-              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ecoServiceModal">Eco &amp; Value</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#cleaningModal">Cleaning</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#landscapingModal">Landscaping</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logisticsModal">Logistics</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#trainingModal">HSE Training & Consulting</a></li>
             </ul>
           </li>
 
@@ -142,160 +143,171 @@
   </section>
 
   <!-- ───── SERVICES ───── -->
-  <section id="services" class="py-5">
-    <div class="container">
-      <h2 class="section-heading">Our Services</h2>
-      <div class="row g-4 justify-content-center">
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="service-card">
-            <img src="images/placeholder1.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Residential Cleaning</h5>
-            <p>Deep cleans, move-in/out &amp; sanitisation.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#resServiceModal">Learn More</button>
-          </div>
+<section id="services" class="py-5">
+  <div class="container">
+    <h2 class="section-heading">Our Services</h2>
+    <div class="row g-4 justify-content-center">
+      <!-- Cleaning -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="service-card">
+          <img src="images/placeholder1.png" alt="Cleaning">
+          <h5>Cleaning</h5>
+          <p>Residential, Commercial, Once-Off & Eco.</p>
+          <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#cleaningModal">Learn More</button>
         </div>
+      </div>
 
-        <div class="col-sm-6 col-lg-3">
-          <div class="service-card">
-            <img src="images/placeholder2.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Commercial Cleaning</h5>
-            <p>Office, retail, hospitality &amp; healthcare.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#comServiceModal">Learn More</button>
-          </div>
+      <!-- Landscaping -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="service-card">
+          <img src="images/placeholder2.png" alt="Landscaping">
+          <h5>Landscaping</h5>
+          <p>Garden design & seasonal maintenance.</p>
+          <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#landscapingModal">Learn More</button>
         </div>
+      </div>
 
-        <div class="col-sm-6 col-lg-3">
-          <div class="service-card">
-            <img src="images/placeholder3.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Specialist One-Off</h5>
-            <p>Event, renovation, allergy &amp; jet-wash.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#oneoffServiceModal">Learn More</button>
-          </div>
+      <!-- Logistics -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="service-card">
+          <img src="images/placeholder3.png" alt="Logistics">
+          <h5>Logistics</h5>
+          <p>Domestic & international delivery.</p>
+          <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#logisticsModal">Learn More</button>
         </div>
+      </div>
 
-        <div class="col-sm-6 col-lg-3">
-          <div class="service-card">
-            <img src="images/placeholder4.png" width="400" height="225" loading="lazy" alt="">
-            <h5>Eco &amp; Value-Add</h5>
-            <p>Green upgrades, linen &amp; recycling supply.</p>
-            <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#ecoServiceModal">Learn More</button>
-          </div>
+      <!-- HSE Training -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="service-card">
+          <img src="images/placeholder4.png" alt="HSE Training">
+          <h5>HSE Training</h5>
+          <p>Accredited safety & consulting services.</p>
+          <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#trainingModal">Learn More</button>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- ───── SERVICE MODALS (Residential / Commercial / One-Off / Eco & Value) ───── -->
-
-<!-- ▸ Residential Cleaning Modal -->
-<div class="modal fade" id="resServiceModal" tabindex="-1" aria-labelledby="resServiceLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+<!-- CLEANING MODAL -->
+<div class="modal fade" id="cleaningModal" tabindex="-1" aria-labelledby="cleaningLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold" id="resServiceLabel">Residential Cleaning</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header">
+        <h5 class="modal-title" id="cleaningLabel">Cleaning Services</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-
       <div class="modal-body">
-        <img class="img-fluid rounded-3 mb-4" src="images/placeholder1.png" alt="Residential cleaning service">
-        <p class="lead">From weekly maintenance to one-off sparkle cleans, our fully-insured technicians treat your home as if it were their own.</p>
-
-        <ul class="list-unstyled ms-1">
-          <li><i class="fas fa-check text-brand me-2"></i> Kitchen &amp; bathroom deep-sanitisation</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Oven, hob &amp; fridge detailing</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Carpet &amp; upholstery steam-clean</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Eco-friendly consumables as standard</li>
-        </ul>
-      </div>
-
-      <div class="modal-footer border-0">
-        <a href="#contact" class="btn btn-cta">Request a Home Quote</a>
+        <div class="accordion" id="cleaningAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#resClean">
+                <i class="fa fa-home"></i> Residential Cleaning
+              </button>
+            </h2>
+            <div id="resClean" class="accordion-collapse collapse show" data-bs-parent="#cleaningAccordion">
+              <div class="accordion-body">Weekly and deep home cleaning, including sanitisation and eco products.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comClean">
+                <i class="fa fa-building"></i> Commercial Cleaning
+              </button>
+            </h2>
+            <div id="comClean" class="accordion-collapse collapse" data-bs-parent="#cleaningAccordion">
+              <div class="accordion-body">Retail, office and industrial-grade cleaning contracts tailored to your business.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#oneoffClean">
+                <i class="fa fa-calendar-check"></i> One-Off & Event Cleaning
+              </button>
+            </h2>
+            <div id="oneoffClean" class="accordion-collapse collapse" data-bs-parent="#cleaningAccordion">
+              <div class="accordion-body">Pre/post-event, renovation, or emergency cleaning with rapid dispatch.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ecoClean">
+                <i class="fa fa-leaf"></i> Eco-Friendly
+              </button>
+            </h2>
+            <div id="ecoClean" class="accordion-collapse collapse" data-bs-parent="#cleaningAccordion">
+              <div class="accordion-body">Green chemicals, carbon offsets, and sustainable materials used throughout.</div>
+            </div>
+          </div>
+        </div>
+        <a href="#booking" class="btn btn-cta mt-3">Book Cleaning</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ▸ Commercial Cleaning Modal -->
-<div class="modal fade" id="comServiceModal" tabindex="-1" aria-labelledby="comServiceLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+  <!-- LANDSCAPING MODAL -->
+<div class="modal fade" id="landscapingModal" tabindex="-1" aria-labelledby="landscapingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold" id="comServiceLabel">Commercial Cleaning</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header">
+        <h5 class="modal-title" id="landscapingLabel">Landscaping Services</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-
       <div class="modal-body">
-        <img class="img-fluid rounded-3 mb-4" src="images/placeholder2.png" alt="Commercial cleaning service">
-        <p class="lead">Tailored contracts for offices, retail, hospitality and healthcare—with flexible out-of-hours scheduling.</p>
-
-        <ul class="list-unstyled ms-1">
-          <li><i class="fas fa-check text-brand me-2"></i> BICS-trained staff &amp; COSHH compliance</li>
-          <li><i class="fas fa-check text-brand me-2"></i> High-touch disinfection &amp; fogging</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Waste segregation &amp; recycling management</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Real-time digital attendance logs</li>
+        <p>We bring your outdoor spaces to life with elegant and functional landscaping solutions.</p>
+        <ul>
+          <li><i class="fa fa-tree text-brand me-2"></i> Garden planning & seasonal maintenance</li>
+          <li><i class="fa fa-seedling text-brand me-2"></i> Lawn care, planting & irrigation</li>
+          <li><i class="fa fa-water text-brand me-2"></i> Water features & stone pathways</li>
         </ul>
-      </div>
-
-      <div class="modal-footer border-0">
-        <a href="#contact" class="btn btn-cta">Enquire About a Contract</a>
+        <a href="#booking" class="btn btn-cta mt-3">Book Landscaping</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ▸ Specialist One-Off Modal -->
-<div class="modal fade" id="oneoffServiceModal" tabindex="-1" aria-labelledby="oneoffServiceLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+<!-- LOGISTICS MODAL -->
+<div class="modal fade" id="logisticsModal" tabindex="-1" aria-labelledby="logisticsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold" id="oneoffServiceLabel">Specialist One-Off Cleaning</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header">
+        <h5 class="modal-title" id="logisticsLabel">Logistics Solutions</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-
       <div class="modal-body">
-        <img class="img-fluid rounded-3 mb-4" src="images/placeholder3.png" alt="One-off cleaning service">
-        <p class="lead">Perfect for end-of-tenancy, renovation dust-outs, pre-event spruce-ups or allergen control cleans.</p>
-
-        <ul class="list-unstyled ms-1">
-          <li><i class="fas fa-check text-brand me-2"></i> Booking slots within 48 hours</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Industrial air scrubbers for dust-heavy jobs</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Specialist stain &amp; odour treatments</li>
-          <li><i class="fas fa-check text-brand me-2"></i> Post-clean photographic checklist</li>
+        <p>Whether local or international, our logistics team delivers securely, efficiently, and on-time.</p>
+        <ul>
+          <li><i class="fa fa-truck-moving text-brand me-2"></i> Freight and courier services</li>
+          <li><i class="fa fa-globe text-brand me-2"></i> Local & international coverage</li>
+          <li><i class="fa fa-barcode text-brand me-2"></i> Package tracking & transparent rates</li>
         </ul>
-      </div>
-
-      <div class="modal-footer border-0">
-        <a href="#contact" class="btn btn-cta">Book a One-Off Clean</a>
+        <a href="#booking" class="btn btn-cta mt-3">Book Logistics</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ▸ Eco & Value-Add Modal -->
-<div class="modal fade" id="ecoServiceModal" tabindex="-1" aria-labelledby="ecoServiceLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+<!-- HSE TRAINING MODAL WITH CONSULTING -->
+<div class="modal fade" id="trainingModal" tabindex="-1" aria-labelledby="trainingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold" id="ecoServiceLabel">Eco &amp; Value-Add Options</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header">
+        <h5 class="modal-title" id="trainingLabel">HSE Training & Consulting</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-
       <div class="modal-body">
-        <img class="img-fluid rounded-3 mb-4" src="images/placeholder4.png" alt="Eco-friendly cleaning service">
-        <p class="lead">Upgrade any service with our planet-friendly add-ons and cost-saving bundles.</p>
-
-        <ul class="list-unstyled ms-1">
-          <li><i class="fas fa-leaf text-success me-2"></i> 100 % plant-based detergents</li>
-          <li><i class="fas fa-leaf text-success me-2"></i> Refillable glass &amp; surface spray system</li>
-          <li><i class="fas fa-leaf text-success me-2"></i> Carbon-offset travel &amp; equipment</li>
-          <li><i class="fas fa-leaf text-success me-2"></i> Linen rental &amp; towel-fold service</li>
+        <p>We offer Health, Safety, and Environmental (HSE) training with practical and compliance-oriented focus.</p>
+        <ul>
+          <li><i class="fa fa-fire-extinguisher text-brand me-2"></i> Fire safety & first aid training</li>
+          <li><i class="fa fa-shield-alt text-brand me-2"></i> Workplace health & risk assessments</li>
+          <li><i class="fa fa-certificate text-brand me-2"></i> Compliance certification & workshop delivery</li>
         </ul>
-      </div>
-
-      <div class="modal-footer border-0">
-        <a href="#contact" class="btn btn-cta">Add to My Clean</a>
+        <h6 class="mt-4">Consulting Services</h6>
+        <p><i class="fa fa-briefcase text-brand me-2"></i> Strategic advisory and operations planning for businesses seeking compliance, structure, and growth.</p>
+        <a href="#booking" class="btn btn-cta mt-3">Book HSE Service</a>
       </div>
     </div>
   </div>
@@ -332,8 +344,18 @@
             <label class="form-label fw-semibold mb-1">Email *</label>
             <input class="styled-input" type="email" required>
 
-            <label class="form-label fw-semibold mb-1">Message *</label>
-            <textarea class="styled-input" rows="5" required></textarea>
+            <!-- Reason DROPDOWN SECTION -->
+            <label class="form-label fw-semibold mb-1 mt-3">Reason for Inquiry (optional)</label>
+            <select class="styled-input">
+              <option value="">Select a service</option>
+              <option>Cleaning</option>
+              <option>Landscaping</option>
+              <option>Logistics</option>
+              <option>HSE Training & Consulting</option>
+              <option>Other</option>
+            </select>
+            <label class="form-label fw-semibold mb-1 mt-3">Message *</label>
+
 
             <div class="form-check my-3">
               <input class="form-check-input" type="checkbox" id="consent">
@@ -348,75 +370,46 @@
           <div class="ratio ratio-4x3 rounded-3 overflow-hidden shadow">
             <iframe src="https://www.google.com/maps?q=2+Aysgarth+Avenue,+Cheltenham&output=embed" allowfullscreen loading="lazy"></iframe>
           </div>
-          <div class="bg-brand-dark text-white p-4 mt-3 rounded-3 d-flex flex-column flex-md-row gap-4">
-            <div><i class="fas fa-envelope me-2"></i>info@cleoniquetech.co.uk</div>
-            <div><i class="fas fa-phone me-2"></i>+44 (0)1242 000 000</div>
-            <div><i class="fas fa-map-marker-alt me-2"></i>Cheltenham, UK</div>
+          <div class="bg-brand-dark text-white p-4 mt-3 rounded-3">
+          <div class="d-flex flex-column flex-md-row gap-4 align-items-md-center mb-3">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-envelope me-2"></i>
+              info@cleoniquetech.co.uk
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-phone me-2"></i>
+              +44 (0)1242 000 000
+            </div>
           </div>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-map-marker-alt me-2"></i>
+            Aysgarth Ave, Cheltenham, UK
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ───── BOOKING CALENDAR (Elfsight) ───── -->
+<section id="booking" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-heading">Book an Appointment</h2>
+    <!-- Elfsight Event Calendar | BOOKINGS -->
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <div class="elfsight-app-af2d32a0-4e5c-45b3-b653-46d4adecbb54" data-elfsight-app-lazy></div>
+  </div>
+</section>
+
 
   <!-- ───── REVIEWS ───── -->
   <section id="reviews" class="py-5 bg-light">
     <div class="container">
       <h2 class="section-heading">Client Reviews</h2>
 
-      <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
-        <div class="carousel-inner">
-
-          <div class="carousel-item active">
-            <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“Immaculate work! Booking was easy and the team left our office sparkling.”</p>
-              <div class="mt-3 fw-semibold">— Emma R.</div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“The eco option is perfect for my kids and pets. Highly recommend Cleonique.”</p>
-              <div class="mt-3 fw-semibold">— Liam S.</div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“Professional, on time, and the deep clean was worth every penny.”</p>
-              <div class="mt-3 fw-semibold">— Jasmine K.</div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“Their carbon-neutral promise aligns perfectly with our company values.”</p>
-              <div class="mt-3 fw-semibold">— Marcus A.</div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“Our Airbnb rating shot up after Cleonique’s turnover service. Guests rave about cleanliness!”</p>
-              <div class="mt-3 fw-semibold">— Sophie T.</div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="review-card p-4 shadow-sm mx-auto">
-              <p class="fst-italic">“Quick response, friendly staff, and superb results every single visit.”</p>
-              <div class="mt-3 fw-semibold">— Daniel M.</div>
-            </div>
-          </div>
-
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
+      <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-a24ec286-f208-43b4-9ec2-5305d4cff06d" data-elfsight-app-lazy></div>
     </div>
   </section>
 
