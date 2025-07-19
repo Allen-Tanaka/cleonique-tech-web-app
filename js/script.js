@@ -1,4 +1,18 @@
 // script.js
+
+// ─── Loader overlay ─────────────────────────────────────────────────────────
+(function(){
+  const loader = document.createElement('div');
+  loader.id = 'loader';
+  loader.innerHTML = '<div class="spinner"></div>';
+  document.body.appendChild(loader);
+  window.addEventListener('load', () => {
+    loader.classList.add('loaded');
+    setTimeout(() => loader.remove(), 300);
+  });
+})();
+
+// ─── Main JS on DOM ready ───────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   // Navbar and back-to-top button
   const nav = document.getElementById('navbar');
@@ -96,8 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
   navColEl?.addEventListener('shown.bs.collapse', () => document.body.style.overflow = 'hidden');
   navColEl?.addEventListener('hidden.bs.collapse', () => document.body.style.overflow = '');
 
-  // Collapse mobile nav when a menu or dropdown item is clicked
+  // ─── Add close-icon into mobile nav ────────────────────────────────────────
   const bsNavCollapse = bootstrap.Collapse.getOrCreateInstance(navColEl, { toggle: false });
+  if (navColEl) {
+    navColEl.insertAdjacentHTML(
+      'afterbegin',
+      '<button type="button" id="navCloseBtn" class="nav-close-btn">&times;</button>'
+    );
+    document.getElementById('navCloseBtn').addEventListener('click', () => {
+      bsNavCollapse.hide();
+    });
+  }
+
+  // Collapse mobile nav when any real link or dropdown-item is clicked
   document
     .querySelectorAll('#navbarNav .nav-link:not(.dropdown-toggle), #navbarNav .dropdown-item')
     .forEach(el => {
@@ -123,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // OPTIONAL: Redirect back to homepage after booking completion
-  // Requires your booking widget to dispatch a 'bookingCompleted' event
   if (window.opener) {
     document.addEventListener('bookingCompleted', () => {
       window.close();
