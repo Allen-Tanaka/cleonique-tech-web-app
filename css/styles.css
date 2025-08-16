@@ -444,18 +444,49 @@ footer .social-icons a:hover { color: var(--brand-primary); }
 
 /* === Final Mobile Responsiveness Fixes === */
 @media (max-width: 576px) {
+  /* Keep scroll and chat buttons inside viewport */
+  .scroll-btn,
+  .chat-toggle {
+    right: 10px !important;
+  }
+  .chat-box {
+    right: 10px !important;
+    width: 92vw !important;
+    min-width: 0 !important;
+    max-width: 340px;
+  }
+  .scroll-btn,
+  .chat-toggle button {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .chat-toggle {
+    bottom: 80px !important;
+  }
+  .scroll-btn {
+    bottom: 20px !important;
+  }
   .navbar .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    align-items: center;
   }
   .navbar-brand {
     font-size: 1.5rem;
     white-space: nowrap;
+    padding-left: 3px;
+    margin-right: 0.3rem;
+  }
+  .navbar-brand img {
+    margin-left: 0;
+    padding-left: 3px;
+    height: 48px !important;
   }
   .navbar-toggler {
-    padding: .25rem .75rem;
+    padding: .18rem .5rem;
     font-size: 1rem;
     line-height: 1;
+    margin-left: 0.2rem;
   }
   .navbar-collapse.show .dropdown-menu {
     width: 100%;
