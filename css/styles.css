@@ -444,28 +444,6 @@ footer .social-icons a:hover { color: var(--brand-primary); }
 
 /* === Final Mobile Responsiveness Fixes === */
 @media (max-width: 576px) {
-  /* Keep scroll and chat buttons inside viewport */
-  .scroll-btn,
-  .chat-toggle {
-    right: 10px !important;
-  }
-  .chat-box {
-    right: 10px !important;
-    width: 92vw !important;
-    min-width: 0 !important;
-    max-width: 340px;
-  }
-  .scroll-btn,
-  .chat-toggle button {
-    width: 44px !important;
-    height: 44px !important;
-  }
-  .chat-toggle {
-    bottom: 80px !important;
-  }
-  .scroll-btn {
-    bottom: 20px !important;
-  }
   .navbar .container {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
