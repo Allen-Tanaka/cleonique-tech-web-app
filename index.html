@@ -186,7 +186,7 @@
       <!-- Cleaning -->
       <div class="col-sm-6 col-lg-3">
         <div class="service-card">
-          <img src="images/placeholder1.png" alt="Cleaning">
+          <img src="images/cleaning.png" alt="Cleaning">
           <h5>Cleaning</h5>
           <p>Residential, Commercial, Once-Off & Eco.</p>
           <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#cleaningModal">Learn More</button>
@@ -196,7 +196,7 @@
       <!-- Landscaping -->
       <div class="col-sm-6 col-lg-3">
         <div class="service-card">
-          <img src="images/placeholder2.png" alt="Landscaping">
+          <img src="images/landscapping.png" alt="Landscaping">
           <h5>Landscaping</h5>
           <p>Garden design & seasonal maintenance.</p>
           <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#landscapingModal">Learn More</button>
@@ -206,7 +206,7 @@
       <!-- Logistics -->
       <div class="col-sm-6 col-lg-3">
         <div class="service-card">
-          <img src="images/placeholder3.png" alt="Logistics">
+          <img src="images/logistics.png" alt="Logistics">
           <h5>Logistics</h5>
           <p>Domestic & international delivery.</p>
           <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#logisticsModal">Learn More</button>
@@ -216,7 +216,7 @@
       <!-- HSE Training -->
       <div class="col-sm-6 col-lg-3">
         <div class="service-card">
-          <img src="images/placeholder4.png" alt="HSE Training">
+          <img src="images/HSE-training.png" alt="HSE Training">
           <h5>HSE Training</h5>
           <p>Accredited safety & consulting services.</p>
           <button class="btn btn-cta" data-bs-toggle="modal" data-bs-target="#trainingModal">Learn More</button>
@@ -431,12 +431,29 @@
 <section id="booking" class="py-5 bg-light">
   <div class="container">
     <h2 class="section-heading">Book an Appointment</h2>
-    <!-- Elfsight Event Calendar | BOOKINGS -->
-    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-    <div class="elfsight-app-af2d32a0-4e5c-45b3-b653-46d4adecbb54" data-elfsight-app-lazy></div>
+    <!-- Elfsight Appointment Booking | Cleonique Appointment Booking -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-af2d32a0-4e5c-45b3-b653-46d4adecbb54" data-elfsight-app-lazy></div>
   </div>
 </section>
 
+  <style>
+    /* Highlight for Elfsight booking section */
+    .booking-highlight {
+      border: 3px solid #009688;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,150,136,0.10), 0 0 0 4px #e0f7fa;
+      padding: 1.5rem 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: #f8fffd;
+      transition: box-shadow .3s, border-color .3s;
+    }
+    .booking-highlight:focus-within, .booking-highlight:hover {
+      box-shadow: 0 6px 32px rgba(0,150,136,0.18), 0 0 0 6px #b2dfdb;
+      border-color: #00796b;
+    }
+  </style>
 
   <!-- ───── REVIEWS ───── -->
   <section id="reviews" class="py-5 bg-light">
