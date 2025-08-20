@@ -41,6 +41,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #333;
   background: #fff;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* === Navbar === */
@@ -50,6 +51,7 @@ body {
   width: 100%;
   z-index: 1050;
   transition: .3s ease;
+  min-height: 60px;
 }
 .bg-gradient-custom {
   background: linear-gradient(135deg,#004d40 0%,#009688 50%,#00695c 100%);
@@ -64,6 +66,7 @@ body {
 .navbar .nav-link {
   font-weight: 600;
   position: relative;
+  white-space: nowrap;
 }
 .navbar .nav-link::after {
   content: '';
@@ -97,6 +100,20 @@ body {
   left: 50% !important;
   transform: translateX(-50%) translateY(10px);
 }
+
+/* Navbar brand responsive sizing */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+.navbar-brand img {
+  height: 48px !important;
+  width: auto;
+  max-width: none;
+}
+
+/* Desktop navbar styles */
 @media (min-width: 992px) {
   .dropdown-menu {
     opacity: 0;
@@ -106,24 +123,50 @@ body {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
+  .navbar { 
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
+    min-height: 92px;
+  }
+  body { padding-top: 92px; }
+  .navbar .nav-link { 
+    padding: 1.1rem 1.6rem; 
+    font-size: 1.15rem; 
+  }
+  .navbar-brand img {
+    height: 72px !important;
+  }
 }
 
-/* mobile navbar padding tweak */
-@media (min-width: 992px) {
-  .navbar { padding-top: 1rem; padding-bottom: 1rem; }
-  body { padding-top: 92px; }
-  .navbar .nav-link { padding: 1.1rem 1.6rem; font-size: 1.15rem; }
+/* Tablet navbar adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-brand img {
+    height: 56px !important;
+  }
+  .navbar .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .navbar .nav-link {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
 }
 
 /* ─── Mobile collapse navbar & close-btn ─────────────────────────────────── */
-@media (max-width: 576px) {
+@media (max-width: 991px) {
   .navbar-toggler {
-    margin-right: calc(env(safe-area-inset-right,0) + 14px);
+    margin-right: max(env(safe-area-inset-right, 0px), 14px);
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    border: none;
   }
-
+  
   .navbar-collapse.show {
     position: fixed;
-    top: 60px; left: 0; right: 0;
+    top: 60px; 
+    left: 0; 
+    right: 0;
     width: 100%;
     background: var(--brand-dark);
     padding: 2rem 1.25rem 3rem;
@@ -138,17 +181,23 @@ body {
     font-size: 1.15rem;
     padding: .9rem 0;
     margin: 0 auto;
+    color: #fff;
   }
 
   .navbar-collapse.show .dropdown-menu {
     width: 100%;
     left: 0 !important;
     transform: none !important;
+    position: static;
+    background: var(--brand-dark);
+    border: none;
+    box-shadow: none;
   }
 
   .navbar-collapse.show .dropdown-item {
     display: block;
     padding: 0.5rem 1rem;
+    color: #fff;
   }
   .navbar-collapse.show .dropdown-item:hover {
     background-color: var(--brand-primary);
@@ -167,6 +216,22 @@ body {
     line-height: 1;
     display: block;
     z-index: 1051;
+    cursor: pointer;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+  .navbar .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .navbar-brand {
+    font-size: 1.3rem;
+    padding-left: 0;
+  }
+  .navbar-brand img {
+    height: 40px !important;
   }
 }
 
@@ -174,87 +239,159 @@ body {
 .carousel,
 .carousel-item {
   height: 100dvh;
+  min-height: 500px; /* Ensure minimum height */
 }
 .carousel-item {
   position: relative;
 }
 .hero-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  position: absolute; 
+  inset: 0;
+  width: 100%; 
+  height: 100%;
   object-fit: cover;
   z-index: -1;
 }
 .section1 { background: url('./images/placeholder1.png') center/cover no-repeat; }
 .section2 { background: url('./images/placeholder2.png') center/cover no-repeat; }
 .section3 { background: url('./images/placeholder3.png') center/cover no-repeat; }
-.carousel-caption {
+
+/* Hero Wrapper Centering */
+.carousel-caption-wrapper {
   position: absolute;
-  top: 220px; left: 300px; right: 300px; bottom: 260px;
-  transform: translate(-50%,-50%);
-  width: auto; max-width: 900px;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  padding: 2rem 1rem;
+}
+
+.carousel-caption {
+  position: static;
+  width: 100%; 
+  max-width: 900px;
   background: rgba(0,0,0,0.55);
   border-radius: var(--radius);
-  padding: 2rem 2.5rem;
+  padding: 2.5rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  transform: none;
 }
+
 .hero-title {
   font-family: 'Anton','Bebas Neue',sans-serif;
-  font-size: clamp(2.4rem,5.5vw,4.2rem);
+  font-size: clamp(2rem, 5.5vw, 4.2rem);
   color: #fff;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
+
 .carousel-caption p {
   color: #e0f2f1;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.carousel-caption .btn {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  padding: 0.75rem 1.5rem;
+}
+
+.carousel-indicators {
+  bottom: 20px;
 }
 .carousel-indicators button {
-  width: 10px; height: 10px;
+  width: 10px; 
+  height: 10px;
   border-radius: 50%;
   border: none;
   background: #eee;
   transition: transform .2s, background .2s;
+  margin: 0 5px;
 }
 .carousel-indicators .active {
   background: var(--brand-primary);
   transform: scale(1.2);
 }
 
-/* Mobile hero tweaks */
-@media (max-width: 576px) {
-  .carousel-caption { padding: 1.4rem; }
-  .hero-title { font-size: 1.8rem !important; }
-  .carousel-caption p { font-size: .9rem; margin-bottom: .4rem; }
+/* Hero responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-caption-wrapper {
+    padding: 1.5rem 1rem;
+  }
   .carousel-caption {
-    top: 160px; left: 50px; right: 50px; bottom: 180px;
-    transform: translate(-50%,-50%);
-    width: 85%; max-width: 900px;
-    border-radius: var(--radius);
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+    max-width: 95%;
+  }
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+  .carousel-caption p {
+    margin-bottom: 1rem;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel,
+  .carousel-item {
+    min-height: 400px;
+  }
+  .carousel-caption-wrapper {
+    padding: 1rem 0.75rem;
+  }
+  .carousel-caption {
+    padding: 1.5rem 1rem;
+    max-width: 98%;
+  }
+  .hero-title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+  .carousel-caption .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
 
 /* === Section headings === */
 .section-heading {
   font-family: 'Bebas Neue','Anton',sans-serif;
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 4vw, 2.4rem);
   text-align: center;
   margin-bottom: 2rem;
   color: var(--brand-dark);
   position: relative;
+  padding: 0 1rem;
 }
 .section-heading::before,
 .section-heading::after {
   content: '';
   position: absolute;
   top: 50%;
-  width: 20%; height: 2px;
+  width: 15%; 
+  height: 2px;
   background: var(--brand-primary);
 }
 .section-heading::before { left: 5%; }
 .section-heading::after  { right: 5%; }
+
+@media (max-width: 768px) {
+  .section-heading::before,
+  .section-heading::after {
+    width: 10%;
+  }
+  .section-heading::before { left: 2%; }
+  .section-heading::after  { right: 2%; }
+}
+
+@media (max-width: 480px) {
+  .section-heading::before,
+  .section-heading::after {
+    display: none; /* Hide decorative lines on very small screens */
+  }
+}
 
 /* === Service cards === */
 .service-card {
@@ -266,6 +403,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  margin-bottom: 1.5rem;
 }
 .service-card img {
   width: 100%;
@@ -276,8 +414,29 @@ body {
   transform: translateY(-6px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.18);
 }
-.service-card h5 { margin: 1rem 0 .4rem; }
-.service-card p  { flex-grow: 1; padding: 0 1rem; color: #555; }
+.service-card h5 { 
+  margin: 1rem 1rem 0.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+.service-card p { 
+  flex-grow: 1; 
+  padding: 0 1rem; 
+  color: #555; 
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+.service-card .btn {
+  margin: 1rem;
+  margin-top: auto;
+}
+
+@media (max-width: 576px) {
+  #services .row > div {
+    margin-bottom: 1rem;
+  }
+  .service-card {
+    margin-bottom: 0;
+  }
+}
 
 /* === Gallery & reviews === */
 .gallery-grid img,
@@ -285,17 +444,38 @@ body {
   border-radius: var(--radius);
 }
 .gallery-grid img {
-  width: 100%; height: 200px;
+  width: 100%; 
+  height: 200px;
   object-fit: cover;
   transition: transform .3s;
 }
-.gallery-grid img:hover { transform: scale(1.05); }
+.gallery-grid img:hover { 
+  transform: scale(1.05); 
+}
 .review-card {
   background: #fff;
   max-width: 600px;
+  margin: 0 auto;
 }
-.review-card p { color: #555; line-height: 1.5; }
-.review-card .fw-semibold { color: var(--brand-primary); }
+.review-card p { 
+  color: #555; 
+  line-height: 1.5; 
+}
+.review-card .fw-semibold { 
+  color: var(--brand-primary); 
+}
+
+@media (max-width: 768px) {
+  .gallery-grid img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid img {
+    height: 120px;
+  }
+}
 
 /* === Inputs & buttons === */
 .styled-input {
@@ -304,40 +484,80 @@ body {
   border-radius: 50px;
   border: 1px solid var(--brand-primary);
   outline: none;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: 1rem;
 }
 textarea.styled-input {
   border-radius: var(--radius);
   resize: vertical;
+  min-height: 120px;
 }
 .btn-cta {
   background: var(--brand-primary);
-  color: #fff; border: none;
+  color: #fff; 
+  border: none;
   padding: .7rem 1.6rem;
   border-radius: 30px;
   transition: transform .3s, background .3s;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  white-space: nowrap;
 }
 .btn-cta:hover {
   background: #007f72;
   transform: scale(1.05);
+  color: #fff;
 }
 .btn-cta:active {
   transform: scale(.95);
 }
 
+@media (max-width: 576px) {
+  .styled-input {
+    padding: 0.8rem;
+    border-radius: 25px;
+  }
+  .btn-cta {
+    padding: 0.6rem 1.2rem;
+    width: 100%;
+  }
+}
+
 /* === Chat & scroll buttons === */
 .scroll-btn,
 .chat-toggle {
-  position: fixed; right: 30px; z-index: 1050;
+  position: fixed; 
+  right: 20px; 
+  z-index: 1050;
 }
 .scroll-btn {
-  bottom: 30px; display: none;
+  bottom: 20px; 
+  display: none;
 }
 .chat-toggle {
-  bottom: 90px;
+  bottom: 80px;
+}
+.scroll-btn,
+.chat-toggle button {
+  width: 52px; 
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  padding: 0;
+}
+.chat-toggle button {
+  background: var(--brand-primary);
+  color: #fff;
+  border: none;
 }
 .chat-box {
-  position: fixed; bottom: 140px; right: 30px;
-  width: 300px; background: #fff;
+  position: fixed; 
+  bottom: 140px; 
+  right: 20px;
+  width: 300px; 
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -351,6 +571,43 @@ textarea.styled-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .scroll-btn,
+  .chat-toggle {
+    right: 15px;
+  }
+  .scroll-btn,
+  .chat-toggle button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+  }
+  .chat-box {
+    right: 15px;
+    width: 280px;
+    bottom: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-btn,
+  .chat-toggle {
+    right: 10px;
+  }
+  .scroll-btn,
+  .chat-toggle button {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  .chat-box {
+    right: 10px;
+    width: calc(100vw - 40px);
+    max-width: 280px;
+    bottom: 100px;
+  }
 }
 
 /* === Pre-footer & footer === */
@@ -368,47 +625,69 @@ footer .social-icons a {
 }
 footer .social-icons a:hover { color: var(--brand-primary); }
 
+/* Pre-footer responsive */
+.pre-footer {
+  padding: 2rem 0;
+}
+.pre-footer h4 {
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+  margin-bottom: 1rem;
+}
+.pre-footer .btn {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.75rem 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .pre-footer {
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+  .pre-footer .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* Footer responsive */
+footer {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+footer h5 {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  margin-bottom: 1rem;
+}
+footer p,
+footer li {
+  font-size: clamp(0.85rem, 1.8vw, 0.9rem);
+}
+footer .social-icons a {
+  font-size: 1.2rem;
+  margin-right: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+  footer .row > div {
+    margin-bottom: 2rem;
+  }
+  footer .social-icons {
+    justify-content: center;
+  }
+}
+
 /* ======================================================================
-   2025-07-10 PATCHES – keep at end so they override earlier rules
+   ACCORDION & MODAL RESPONSIVE STYLES
    ====================================================================== */
-/* 1 ▸ Centre hero caption precisely (no 85% drift) */
-#hero-carousel .carousel-caption {
-  width: auto; max-width: 900px;
-  background: rgba(0,0,0,0.55);
-  padding: 2rem 2.5rem;
-  text-align: center;
-}
-/* 2 ▸ Chat-toggle button mirrors scroll-up button */
-.scroll-btn,
-.chat-toggle button {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  padding: 0;
-}
-.chat-toggle button {
-  background: var(--brand-primary);
-  color: #fff;
-  border: none;
-}
-/* keep chat-toggle container above scroll button */
-.chat-toggle {
-  bottom: 90px; right: 30px;
-  position: fixed;
-  z-index: 1050;
-}
-/* 3 ▸ Trim excess space under Reviews */
-#reviews {
-  padding-bottom: 2rem !important;
-  margin-bottom: 0 !important;
-}
 .accordion-button {
   background-color: var(--brand-primary);
   color: #fff;
   font-weight: 600;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  padding: 1rem 1.25rem;
 }
 .accordion-button:not(.collapsed) {
   background-color: #007f72;
@@ -424,6 +703,8 @@ footer .social-icons a:hover { color: var(--brand-primary); }
 .accordion-body {
   background: #f9f9f9;
   color: #333;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  padding: 1.25rem;
 }
 .modal-header {
   background: var(--brand-primary);
@@ -433,84 +714,261 @@ footer .social-icons a:hover { color: var(--brand-primary); }
 }
 .modal-title {
   font-weight: bold;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
 }
 .modal-content {
   border-radius: 12px;
   overflow: hidden;
 }
+.modal-body {
+  padding: 1.5rem;
+}
+.modal-body p,
+.modal-body li {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
 .accordion-button .fa {
   margin-right: 10px;
 }
 
-/* === Final Mobile Responsiveness Fixes === */
 @media (max-width: 576px) {
-  .navbar .container {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    align-items: center;
+  .modal-dialog {
+    margin: 1rem 0.5rem;
   }
-  .navbar-brand {
-    font-size: 1.5rem;
-    white-space: nowrap;
-    padding-left: 3px;
-    margin-right: 0.3rem;
+  .modal-body {
+    padding: 1rem;
   }
-  .navbar-brand img {
-    margin-left: 0;
-    padding-left: 3px;
-    height: 48px !important;
+  .accordion-button {
+    padding: 0.8rem 1rem;
   }
-  .navbar-toggler {
-    padding: .18rem .5rem;
-    font-size: 1rem;
-    line-height: 1;
-    margin-left: 0.2rem;
-  }
-  .navbar-collapse.show .dropdown-menu {
-    width: 100%;
-    left: 0 !important;
-    transform: none !important;
-  }
-  .carousel-caption {
-    top: 50% !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: translate(-50%,-50%) !important;
-    width: 92% !important;
-    max-width: 100% !important;
-    padding: 1.25rem !important;
-  }
-  .carousel-caption h1,
-  .carousel-caption .hero-title {
-    font-size: 1.6rem !important;
-    line-height: 1.3 !important;
-  }
-  .carousel-caption p {
-    font-size: .9rem !important;
-  }
-  .carousel-caption .btn {
-    font-size: .9rem !important;
-    padding: .6rem 1.2rem !important;
-  }
-  .social-icons {
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-  }
-  .social-icons a {
-    margin: 0 .5rem;
-    font-size: 1.2rem;
+  .accordion-body {
+    padding: 1rem;
   }
 }
 
-/* Hero Wrapper Centering */
-.carousel-caption-wrapper {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  padding: 1rem;
+/* ======================================================================
+   CONTACT SECTION RESPONSIVE STYLES
+   ====================================================================== */
+#contact {
+  padding: 3rem 0;
+}
+#contact .row {
+  align-items: flex-start;
+}
+#contact form {
+  margin-bottom: 2rem;
+}
+#contact .form-label {
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+#contact .form-check-label {
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+}
+#contact .bg-brand-dark {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+#contact .bg-brand-dark div {
+  margin-bottom: 0.75rem;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+}
+#contact .bg-brand-dark i {
+  margin-right: 0.5rem;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  #contact {
+    padding: 2rem 0;
+  }
+  #contact .row > div:first-child {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #contact .bg-brand-dark {
+    padding: 1.25rem;
+  }
+  #contact .bg-brand-dark .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.75rem;
+  }
+}
+
+/* ======================================================================
+   ABOUT SECTION RESPONSIVE STYLES
+   ====================================================================== */
+#about {
+  padding: 3rem 0;
+}
+#about .section-heading {
+  margin-bottom: 3rem;
+}
+#about img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+#about h4 {
+  color: var(--brand-primary);
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  margin-bottom: 0.75rem;
+}
+#about p,
+#about li {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+#about .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+#about .text-brand {
+  color: var(--brand-primary);
+}
+
+@media (max-width: 768px) {
+  #about {
+    padding: 2rem 0;
+  }
+  #about .row > div:first-child {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  #about img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* ======================================================================
+   BOOKING SECTION RESPONSIVE STYLES
+   ====================================================================== */
+#booking {
+  padding: 3rem 0;
+}
+.booking-highlight {
+  border: 3px solid #009688;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,150,136,0.10), 0 0 0 4px #e0f7fa;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: #f8fffd;
+  transition: box-shadow .3s, border-color .3s;
+}
+.booking-highlight:focus-within, 
+.booking-highlight:hover {
+  box-shadow: 0 6px 32px rgba(0,150,136,0.18), 0 0 0 6px #b2dfdb;
+  border-color: #00796b;
+}
+
+@media (max-width: 768px) {
+  #booking {
+    padding: 2rem 0;
+  }
+  .booking-highlight {
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-highlight {
+    padding: 1rem;
+    border-width: 2px;
+    border-radius: 12px;
+  }
+}
+
+/* ======================================================================
+   REVIEWS SECTION RESPONSIVE STYLES  
+   ====================================================================== */
+#reviews {
+  padding: 2rem 0 !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  #reviews {
+    padding: 1.5rem 0 !important;
+  }
+}
+
+/* ======================================================================
+   GENERAL CONTAINER RESPONSIVE ADJUSTMENTS
+   ====================================================================== */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  /* Ensure sections have proper spacing */
+  section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* ======================================================================
+   UTILITY CLASSES FOR RESPONSIVE DESIGN
+   ====================================================================== */
+.text-responsive {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.heading-responsive {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+
+.subheading-responsive {
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+}
+
+/* Hide elements that might cause horizontal scroll */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Ensure images don't break layout */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .carousel-caption {
+    padding: 1rem 0.75rem;
+  }
+  
+  .hero-title {
+    font-size: 1.4rem !important;
+  }
+  
+  .section-heading {
+    font-size: 1.8rem;
+  }
+  
+  .btn-cta {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
 }
