@@ -1,416 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Cleonique Email Signature</title>
-    <style>
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            max-width: 800px;
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,150,136,0.15);
-            margin: 20px;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #004d40 0%, #009688 50%, #00695c 100%);
-            color: white;
-            border-radius: 15px;
-        }
-        
-        .signature-preview {
-            margin-bottom: 30px;
-            border: 2px solid #009688;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,150,136,0.2);
-        }
-        
-        .copy-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #009688 0%, #00796b 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(0,150,136,0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,150,136,0.4);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .instructions {
-            background: #f8fffd;
-            border: 2px solid #e0f2f1;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .instructions h3 {
-            color: #004d40;
-            margin-top: 0;
-            font-size: 18px;
-        }
-        
-        .instructions ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        
-        .instructions li {
-            margin-bottom: 8px;
-            color: #555;
-            line-height: 1.5;
-        }
-        
-        .alert {
-            background: #e8f5e8;
-            border-left: 4px solid #4caf50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-            display: none;
-        }
-        
-        .alert.show {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Email Signature Styles */
-        .signature {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 550px;
-            border: 2px solid #009688;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fffd 100%);
-            margin: 0;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,150,136,0.15);
-        }
-        
-        .header-section {
-            background: #009688;
-            padding: 15px 20px;
-            color: white;
-            border-radius: 10px 10px 0 0;
-        }
-        
-        .name {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 0 0 5px 0;
-            letter-spacing: 0.5px;
-        }
-        
-        .title {
-            font-size: 14px;
-            color: #e0f2f1;
-            margin: 0;
-            font-weight: 500;
-        }
-        
-        .content-section {
-            padding: 18px 20px;
-            background: white;
-        }
-        
-        .contact-row {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-            font-size: 13px;
-            color: #333;
-        }
-        
-        .contact-icon {
-            color: #009688;
-            margin-right: 8px;
-            width: 16px;
-            text-align: center;
-            font-size: 14px;
-        }
-        
-        .contact-link {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: #009688;
-            text-decoration: underline;
-        }
-        
-        .company-section {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid #e0f2f1;
-        }
-        
-        .company-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #004d40;
-            margin: 0 0 5px 0;
-            letter-spacing: 0.3px;
-        }
-        
-        .tagline {
-            font-size: 12px;
-            color: #009688;
-            font-style: italic;
-            margin: 0;
-            font-weight: 500;
-        }
-        
-        .address-row {
-            display: flex;
-            align-items: flex-start;
-            margin: 6px 0;
-            font-size: 12px;
-            color: #555;
-            line-height: 1.4;
-        }
-        
-        .footer-section {
-            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
-            padding: 12px 20px;
-            border-radius: 0 0 10px 10px;
-            text-align: center;
-        }
-        
-        .services-line {
-            font-size: 11px;
-            color: #00695c;
-            margin: 0 0 8px 0;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-        
-        .services-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .service-icon {
-            background: white;
-            color: #009688;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            box-shadow: 0 2px 8px rgba(0,150,136,0.20);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .service-icon:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,150,136,0.30);
-            background: #009688;
-            color: white;
-        }
-        
-        .separator {
-            color: #009688;
-            margin: 0 8px;
-            font-weight: bold;
-        }
-        
-        .phone-group {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .eco-badge {
-            background: #4caf50;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: bold;
-            margin-left: 5px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .logo-img {
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.1);
-        }
-        
-        @media (max-width: 600px) {
-            .phone-group {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .services-icons {
-                gap: 10px;
-            }
-            
-            .service-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 12px;
-            }
-            
-            .copy-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-        }
-    
-    </style>
-</head>
-<body>
-    <table class="signature" cellpadding="0" cellspacing="0" border="0" id="emailSignature">
-                <!-- Header Section -->
-                <tbody><tr>
-                    <td class="header-section">
-                        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
-                            <tbody><tr>
-                                <td style="vertical-align: middle; width: 80px; padding-right: 15px;">
-                                    <img src="../../images/logo-tag.png" alt="Cleonique Tech Limited Logo" style="height:68px;width:auto;display:inline-block;background:#fff;padding:6px 12px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
-                                </td>
-                                <td style="vertical-align: middle;">
-                                    <div class="name">Edward Surname</div>
-                                    <div class="title">Executive Director</div>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    </td>
-                </tr>
-                
-                <!-- Content Section -->
-                <tr>
-                    <td class="content-section">
-                        <!-- Contact Us Header -->
-                        <div style="font-size: 14px; font-weight: bold; color: #004d40; margin: 0 0 12px 0; letter-spacing: 0.3px;">Contact Us</div>
-                        
-                        <!-- Phone Numbers Row -->
-                        <div class="contact-row">
-                            <span class="contact-icon">📞</span>
-                            <div class="phone-group">
-                                <a href="tel:+441242000000" class="contact-link">+44 (0)1242 000 000</a>
-                                <span class="separator">|</span>
-                                <a href="tel:+447123456789" class="contact-link">📱 +44 7123 456 789</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Email and Website Row -->
-                        <div class="contact-row">
-                            <span class="contact-icon">📧</span>
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <a href="mailto:info@cleoniquetech.co.uk" class="contact-link">info@cleoniquetech.co.uk</a>
-                                <span class="separator">|</span>
-                                <span style="color: #009688; margin-right: 8px; font-size: 14px;">🌐</span>
-                                <a href="https://www.cleoniquetech.co.uk" class="contact-link" target="_blank">www.cleoniquetech.co.uk</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Company Section -->
-                        <div class="company-section">
-                            <div class="company-logo-name" style="display:flex;align-items:center;gap:10px;">
-                                <img src="../../images/web-white.png" alt="Cleonique Tech Limited Logo" style="height:38px;width:auto;display:inline-block;background:#009688;border-radius:8px;padding:2px 8px;box-shadow:0 2px 8px rgba(0,150,136,0.10);">
-                            </div>
-                            <div class="tagline">
-                                "Your Partner In Progress"
-                            </div>
-                            
-                            <!-- Address -->
-                            <div class="address-row" style="margin: 12px 0 6px 0;">
-                                <span class="contact-icon">📍</span>
-                                2 Aysgarth Avenue, Cheltenham, Gloucestershire, GL53 9DT
-                            </div>
-                            
-                            <!-- Service Areas -->
-                            <div class="address-row">
-                                <span class="contact-icon">🗺️</span>
-                                Service Areas: Cheltenham • Gloucester • Tewkesbury • Cotswolds
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                
-                <!-- Footer Section -->
-                <tr>
-                    <td class="footer-section">
-                        <div class="services-line">Our Services</div>
-                        <div class="services-icons">
-                            <div class="service-icon" title="Cleaning Services" onclick="showServiceInfo('cleaning')" tabindex="0">🧽</div>
-                            <div class="service-icon" title="Landscaping" onclick="showServiceInfo('landscaping')" tabindex="0">🌿</div>
-                            <div class="service-icon" title="Logistics" onclick="showServiceInfo('logistics')" tabindex="0">🚛</div>
-                            <div class="service-icon" title="HSE Training" onclick="showServiceInfo('hse')" tabindex="0">🛡️</div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody></table>
-</body>
-</html>
+<table cellpadding="0" cellspacing="0" border="0" style="font-family:Segoe UI, Arial, sans-serif; font-size:13px; color:#333; border:1px solid #009688; border-radius:8px; max-width:500px; width:100%;">
+  <!-- Header -->
+  <tr>
+    <td style="background:#abb3b1; padding:12px; color:#fff; border-radius:8px 8px 0 0;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+          <td width="70" valign="middle">
+            <img src="https://cleonique.co.uk/images/logo-tag.png" alt="Cleonique Tech Limited Logo" style="display:block; height:60px; border-radius:8px; background:#fff; padding:4px;">
+          </td>
+          <td valign="middle">
+            <div style="font-size:16px; font-weight:bold;">Edward Surname</div>
+            <div style="font-size:13px; color:#e0f2f1;">Executive Director</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- Contact -->
+  <tr>
+    <td style="padding:12px; background:#fff;">
+      <div style="margin-bottom:6px;">
+        <strong style="color:#004d40;">📞 Phone:</strong> 
+        <a href="tel:+441242000000" style="color:#333; text-decoration:none;">+44 (0)1242 000 000</a> | 
+        <a href="tel:+447123456789" style="color:#333; text-decoration:none;">+44 7123 456 789</a>
+      </div>
+      <div style="margin-bottom:6px;">
+        <strong style="color:#004d40;">📧 Email:</strong> 
+        <a href="mailto:info@cleoniquetech.co.uk" style="color:#333; text-decoration:none;">info@cleoniquetech.co.uk</a>
+      </div>
+      <div style="margin-bottom:6px;">
+        <strong style="color:#004d40;">🌐 Web:</strong> 
+        <a href="https://www.cleoniquetech.co.uk" target="_blank" style="color:#009688; text-decoration:none;">www.cleoniquetech.co.uk</a>
+      </div>
+      <div style="margin-bottom:6px;">
+        <strong style="color:#004d40;">📍 Address:</strong> 2 Aysgarth Avenue, Cheltenham, Gloucestershire, GL53 9DT
+      </div>
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="background:#e0f2f1; text-align:center; padding:10px; border-radius:0 0 8px 8px;">
+      <div style="font-size:12px; color:#00695c; font-weight:bold; margin-bottom:6px;">Our Services</div>
+      <span style="font-size:14px; margin:0 6px;">🧽</span>
+      <span style="font-size:14px; margin:0 6px;">🌿</span>
+      <span style="font-size:14px; margin:0 6px;">🚛</span>
+      <span style="font-size:14px; margin:0 6px;">🛡️</span>
+      <div style="font-size:11px; color:#666; margin-top:6px;">“Your Partner in Progress”</div>
+    </td>
+  </tr>
+</table>
