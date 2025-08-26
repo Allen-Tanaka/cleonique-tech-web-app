@@ -4,7 +4,7 @@
 (function(){
   const loader = document.createElement('div');
   loader.id = 'loader';
-  loader.innerHTML = '<div class="spinner"></div>';
+  loader.innerHTML = '<div class="loader-logo-wrapper"><img src="images/web-white.png" alt="Cleonique Logo" class="loader-logo" height="56" style="margin-bottom:1.5rem;"><div class="spinner"></div></div>';
   document.body.appendChild(loader);
   window.addEventListener('load', () => {
     loader.classList.add('loaded');
