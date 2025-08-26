@@ -2,9 +2,13 @@
 
 A modern, responsive website for Cleonique Tech Limited, providing eco-friendly cleaning, landscaping, logistics, and HSE training services in Cheltenham and surrounding areas.
 
+## Recent Updates
+
+- Added a high-visibility favicon (logo icon) for browser tabs.
+- Footer now displays a clickable icode logo (linked to icodeglobe.com) instead of text, matching the original text size and alignment.
+
 ## Features
 
-- **Branded, Responsive Design:**
   - Custom branding, logo, and color palette
   - Mobile-first layout using Bootstrap 5 and custom CSS
   - Fast loading with optimized assets and preconnects
@@ -69,6 +73,17 @@ PERSONAL/cleonique/
 - Update service info, images, or branding in `index.html` and `images/`
 - Adjust styles in `css/styles.css`
 - Update email signature in `src/email-signatures/`
+
+## Credits
+
+- Designed and developed by Cleonique Tech Limited & iCODE
+- Icons: Font Awesome
+- Animations: Animate.css
+- Booking & Reviews: Elfsight
+
+---
+
+For questions or support, contact info@cleoniquetech.co.uk
 
 ## Credits
 
